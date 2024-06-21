@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Form validation</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        @media (min-width: 601px) {
+            .w3-half {
+                /* override in mobile - style was originally designed to be a grid which i haven't used and am not taking the time to change */
+                width: 100%;
+            }
+        }
+
+    </style>
+  
+
+</head>
+
+<body class="w3-content w3-cyan">
+   <div class="w3-half w3-container">
+      <form class="w3-container w3-card w3-padding-32 w3-white" method="post" action="" onsubmit="return goo();">
+         <h1>Contact form</h1>
+         <p class="w3-section">
+            <label for="email">Email</label>
+            <input class="w3-input" style="width:100%;" type="email" required name="Email"/>
+         </p>
+         <p class="w3-section">
+            <label for="password">Password</label>
+            <input class="w3-input" style="width:100%;" type="text" required name="Password" minlength="8"/>
+         </p>
+         <h3>Your animal</h3>
+         <p>
+            <label class="label" for="colour">
+            Colour
+            </label>
+            <select class="w3-select" name="colour" id="colour">
+               <option value="">Choose colour</option>
+               <option value="blue">Blue</option>
+               <option value="green">Green</option>
+               <option value="red">Red</option>
+               <option value="black">Black</option>
+               <option value="brown">Brown</option>
+            </select>
+         </p>
+         <p>
+         <ul class="w3-ul">
+            <li>
+               <input onselect="onSelectAnimalType" class="animal-type" type="checkbox" name="animal" value="bear" id="bear"/>
+               <label for="bear">
+               Bear
+               </label>
+            </li>
+            <li>
+               <input type="checkbox" class="animal-type" name="animal" value="tiger" id="tiger"/>
+               <label for="tiger">
+               Tiger
+               </label>
+            </li>
+            <li>
+               <input type="checkbox" name="animal" value="snake" id="snake" class="animal-type"/>
+               <label for="snake">
+               Snake
+               </label>
+            </li>
+            <li>
+               <input type="checkbox" name="animal" value="donkey" id="donkey" class="animal-type"/>
+               <label for="donkey">
+               Donkey
+               </label>
+            </li>
+         </ul>
+         </p>
+         <div class="hidden" id="tiger-type">
+            <label for="tiger_type" class="label" for="tiger_type">
+            Type of tiger
+            </label>
+            <input class="w3-input" type="text" name="tiger_type" id="tiger_type"/>
+         </div>
+         <p>
+            <input class="w3-button w3-cyan w3-right" type="submit" value="Create account"/>
+         </p>
+      </form>
+   </div>
+</body>
+
+<script type="text/javascript" defer="defer">
+
+function goo(){
+    alert("Successfully submitted");
+}
+
+// attach events to the checkboxes
+const checkboxes = document.getElementsByClassName("animal-type");
+
+for (let i = 0; i < checkboxes.length; i++) {
+  const checkbox = checkboxes[i];
+
+  checkbox.addEventListener("change", (e) => {
+    if (e.target.id === "tiger") {
+      let tigerTypeClass = "hidden";
+
+      if (e.currentTarget.checked) {
+        tigerTypeClass = "show";
+        document.getElementById("tiger_type").setAttribute("required", "true");
+      }
+
+      const tigerType = document.getElementById("tiger-type");
+      tigerType.className = tigerTypeClass;
+    }
+
+    if (event.currentTarget.checked) {
+      console.log("checked", event.target.id);
+    } else {
+      console.log("not checked", event.target.id);
+    }
+  });
+}
+</script>
+
+</html>
