@@ -1,6 +1,8 @@
 # Form validation problem - my thoughts
 
 ### decisions
+core approach was the simplest and quickest because 2 hours isn't long. it was a simple requirement and making simple things complex is a terrible idea - things always get complex so best to start as simple as possible!
+
 i glanced through the github history and copied and pasted the html from the deleted index.html because it saved me typing it all out.
 i looked around at free styles and found one that was simple and did much of what was needed and used that because i implment other peoples styles rather than creating my own and that was the quickest way of doing it.
 
